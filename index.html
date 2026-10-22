@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gotejamento e Aprazamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Enfermagem</h1>
+            <p>Gotejamento de Soro e Tabela de Aprazamento</p>
+        </header>
+
+        <main>
+            <form id="calc-form">
+                <!-- Campo de Volume -->
+                <div class="form-group">
+                    <label for="volume">Volume total (mL)</label>
+                    <input type="number" id="volume" placeholder="Ex: 500" required min="1">
+                </div>
+
+                <!-- Linha com Horas, Minutos e Tipo de Equipo -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tempo-horas">Horas:</label>
+                        <input type="number" id="tempo-horas" placeholder="Ex:2" min="0" max="24" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="tempo-minutos">Minutos</label>
+                        <input type="number" id="tempo-minutos" placeholder="Ex:30" min="0" max="59" value="0">
+                    </div>
+
+                    <div class="form-hora">
+                        <label for="equipo">Tipo de Equipo</label>
+                        <select id="equipo">
+                            <option value="macrogotas">Macrogotas (Gotas/min)</option>
+                            <option value="microgotas">Microgotas (Microgotas/min)</option>
+                        </select>
+                    </div>
+                </div> <!-- Fechamento correto da primeira form-row -->
+
+                <hr>
+
+                <h3>Aprazamento (Opcional)</h3>
+
+                <!-- Linha com Horário e Intervalo -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hora-inicio">Horário da 1ª Dose</label>
+                        <input type="time" id="hora-inicio">
+                    </div>
+                    <div class="form-group">
+                        <label for="intervalo">Intervalo (Horas)</label>
+                        <select id="intervalo">
+                            <option value="">Sem Aprazamento</option>
+                            <option value="4">De 4 em 4h (6x ao dia)</option>
+                            <option value="6">De 6 em 6h (4x ao dia)</option>
+                            <option value="8">De 8 em 8h (3x ao dia)</option>
+                            <option value="12">De 12 em 12h (2x ao dia)</option>
+                            <option value="24">De 24 em 24h (1x ao dia)</option>
+                        </select>
+                    </div>
+                </div> <!-- Fechamento da segunda form-row -->
+
+                <button type="submit" id="btn-calcular">Calcular</button>
+            </form>
+
+            <section id="resultado" class="hidden">
+                <h2>Resultado do Gotejamento</h2>
+                <div class="card-resultado">
+                    <p id="valor-gotejamento">0</p>
+                    <span id="unidade-gotejamento">gotas/minuto</span>
+                </div>
+
+                <div id="secao-aprazamento" class="hidden">
+                    <h3>Horários de Aprazamento</h3>
+                    <ul id="lista-horarios"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
