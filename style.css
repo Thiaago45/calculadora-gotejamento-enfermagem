@@ -76,12 +76,22 @@ input, select {
     box-sizing: border-box; /* Impede que o padding quebre a largura */
 }
 
+/* Correção específica para campos do tipo time no Safari/iOS */
+input[type="time"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-height: 42px; /* Mantém a altura elegante e padronizada */
+}
+
 /* --- RESPONSIVIDADE PARA CELULARES --- */
 @media (max-width: 480px) {
     /* No celular, faz as linhas com múltiplos campos ficarem em coluna (empilhadas) */
     .form-row {
         flex-direction: column;
         gap: 10px;
+        input[type="time"] {
+        text-align: center;
     }
 
     .container {
