@@ -38,6 +38,29 @@ header p {
     margin-top: 5px;
 }
 
+.modo-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-modo {
+    flex: 1;
+    padding: 10px;
+    background-color: #e0e0e0;
+    color: #555;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-modo.active {
+    background-color: #006699;
+    color: #ffffff;
+}
+
 .form-group {
     margin-bottom: 15px;
     display: flex;
@@ -46,19 +69,17 @@ header p {
 
 .form-row {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     width: 100%;
 }
 
-
 .form-row .form-group {
-   display: flex;
-   
+    flex: 1;
+    min-width: 0;
 }
 
-
 label {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 5px;
     color: #444;
@@ -73,34 +94,7 @@ input, select {
     transition: border-color 0.2s;
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box; /* Impede que o padding quebre a largura */
-}
-
-/* Correção específica para campos do tipo time no Safari/iOS */
-input[type="time"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    min-height: 42px; /* Mantém a altura elegante e padronizada */
-}
-
-/* --- RESPONSIVIDADE PARA CELULARES --- */
-@media (max-width: 480px) {
-    /* No celular, faz as linhas com múltiplos campos ficarem em coluna (empilhadas) */
-    .form-row {
-        flex-direction: column;
-        gap: 10px;
-        input[type="time"] {
-        text-align: center;
-    }
-
-    .container {
-        padding: 15px; /* Reduz a margem interna no celular */
-    }
-
-    header h1 {
-        font-size: 1.3rem;
-    }
+    box-sizing: border-box;
 }
 
 input:focus, select:focus {
@@ -187,4 +181,17 @@ button:hover {
     border-radius: 4px;
     font-weight: bold;
     border: 1px solid #a5d6a7;
+}
+
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.3rem;
+    }
 }
